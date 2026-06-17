@@ -98,7 +98,7 @@ header.nav.scrolled{background:rgba(8,8,8,.86);backdrop-filter:blur(14px);border
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{font-family:'Oswald',sans-serif;font-weight:600;font-size:1.45rem;letter-spacing:.18em;color:var(--white);display:flex;align-items:center;gap:8px}
 .logo .bar{color:var(--gold);font-weight:300}
-.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links{display:flex;align-items:center;gap:20px;list-style:none}
 .nav-links a{font-size:.82rem;letter-spacing:.06em;color:var(--muted);transition:color .25s;font-weight:500;text-transform:uppercase;font-family:'Oswald',sans-serif;white-space:nowrap}
 .nav-links a:hover{color:var(--text)}
 .nav-right{display:flex;align-items:center;gap:18px}
@@ -204,8 +204,9 @@ header.nav.scrolled{background:rgba(8,8,8,.86);backdrop-filter:blur(14px);border
 /* ===== TEAM ===== */
 .team{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
 .team-sub{font-family:'Oswald';text-transform:uppercase;letter-spacing:.24em;font-size:.84rem;color:var(--gold);margin:54px 0 26px}
-.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
-.team-grid.photogs{grid-template-columns:repeat(5,1fr)}
+.team-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}
+.team-grid.photogs{display:flex;flex-wrap:wrap;gap:18px}
+.team-grid.photogs .member{flex:0 0 210px}
 .member{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:all .4s var(--ease)}
 .member:hover{transform:translateY(-5px);border-color:rgba(212,148,50,.4)}
 .member .avatar{aspect-ratio:3/4;background:linear-gradient(150deg,#222,#0d0d0d);display:flex;align-items:center;justify-content:center;position:relative}
@@ -278,6 +279,24 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
 /* helper: si agregas <img> en tarjetas, equipo o eventos, se ajusta solo */
 .member .avatar img,.ev-card .ev-img img,.work-item img.cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
+/* team links (instagram + reels) */
+.member .links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.member .links a{display:inline-flex;align-items:center;gap:5px;font-family:'Oswald',sans-serif;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);border-radius:50px;padding:5px 10px;transition:all .25s}
+.member .links a:hover{color:var(--gold);border-color:var(--gold)}
+.member .links a svg{width:12px;height:12px}
+
+/* foto fija gallery (masonry) */
+.fotofija{background:var(--bg-2)}
+.gallery{column-count:4;column-gap:14px;margin-top:8px}
+.gallery img{width:100%;margin:0 0 14px;border-radius:10px;border:1px solid var(--line);break-inside:avoid;display:block;transition:opacity .3s,transform .3s}
+.gallery img:hover{opacity:.9;transform:scale(1.01)}
+.ig-inline{color:var(--gold);font-family:'Inter',sans-serif;text-transform:none;letter-spacing:0;font-size:.92rem}
+
+/* AI examples */
+.ai-examples{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.ai-ex{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;border:1px solid rgba(212,148,50,.25)}
+.ai-ex iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
 /* reveal animation */
 .reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .reveal.visible{opacity:1;transform:none}
@@ -295,8 +314,9 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
 @media(max-width:1024px){
   .svc-grid{grid-template-columns:repeat(2,1fr)}
   .ai-grid{grid-template-columns:1fr}
-  .team-grid,.team-grid.photogs{grid-template-columns:repeat(3,1fr)}
+  .team-grid{grid-template-columns:repeat(3,1fr)}
   .about-grid,.ev-top,.contact-grid{grid-template-columns:1fr;gap:40px}
+  .ai-examples{grid-template-columns:1fr}
   .work-item.feat{grid-column:span 2}
   .nav-links{position:fixed;inset:0 0 0 auto;width:min(80vw,320px);background:#0c0c0c;flex-direction:column;
     justify-content:center;gap:26px;transform:translateX(100%);transition:transform .45s var(--ease);
@@ -310,7 +330,7 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
   .work-grid,.ev-cards{grid-template-columns:1fr}
   .work-item.feat{grid-column:span 1}
   .svc-grid{grid-template-columns:1fr}
-  .team-grid,.team-grid.photogs{grid-template-columns:repeat(2,1fr)}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
   .row-2{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr;gap:30px}
   .head-row{margin-bottom:42px}
@@ -332,6 +352,7 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
         <li><a href="#ai" data-en="AI Studio">AI Studio</a></li>
         <li><a href="#work" data-en="Work">Portafolio</a></li>
         <li><a href="#team" data-en="Team">Equipo</a></li>
+        <li><a href="#fotofija" data-en="Photography">Foto Fija</a></li>
         <li><a href="#events" data-en="Events">Eventos</a></li>
         <li><a href="#contact" data-en="Contact">Contacto</a></li>
       </ul>
@@ -455,6 +476,11 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
       <span class="chip"><span class="dot"></span><span data-en="Infinite scale">Escala infinita</span></span>
       <span class="chip"><span class="dot"></span><span data-en="No creative limits">Sin límites creativos</span></span>
     </div>
+    <div class="team-sub reveal" style="text-align:center;margin-top:48px" data-en="AI commercials — examples">Comerciales con IA — ejemplos</div>
+    <div class="ai-examples reveal">
+      <div class="ai-ex"><iframe src="https://player.vimeo.com/video/1166119140?h=ffd9b1d040&title=0&byline=0&portrait=0" title="Comercial con IA 1" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+      <div class="ai-ex"><iframe src="https://player.vimeo.com/video/1166566431?h=2926c7d851&title=0&byline=0&portrait=0" title="Comercial con IA 2" allow="fullscreen; picture-in-picture" loading="lazy"></iframe></div>
+    </div>
     <div class="ai-cta reveal">
       <a href="#contact" class="btn btn-gold" data-en="See what AI can do for your brand">Descubre lo que la IA puede hacer por tu marca <span class="arrow">→</span></a>
     </div>
@@ -471,43 +497,54 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
       </div>
       <div class="filters reveal" data-delay="1" id="filters">
         <button class="filter active" data-filter="all" data-en="All">Todos</button>
-        <button class="filter" data-filter="comercial" data-en="Advertising">Comerciales</button>
-        <button class="filter" data-filter="musica" data-en="Music">Música</button>
-        <button class="filter" data-filter="cine" data-en="Film">Cine</button>
+        <button class="filter" data-filter="publicidad" data-en="Advertising">Publicidad</button>
         <button class="filter" data-filter="moda" data-en="Fashion">Moda</button>
-        <button class="filter" data-filter="ia" data-en="AI">IA</button>
+        <button class="filter" data-filter="videoclips" data-en="Music">Videoclips</button>
+        <button class="filter" data-filter="cine" data-en="Film">Cine</button>
+        <button class="filter" data-filter="corporativo" data-en="Corporate">Corporativo</button>
+        <button class="filter" data-filter="influencers" data-en="Influencers">Influencers</button>
+        <button class="filter" data-filter="eventos" data-en="Events">Eventos</button>
+        <button class="filter" data-filter="comida" data-en="Food">Comida</button>
+        <button class="filter" data-filter="dron" data-en="Drone">Dron</button>
       </div>
     </div>
     <div class="work-grid" id="workGrid">
-      <!-- Showreel principal -->
-      <div class="work-item feat reveal" data-cat="comercial">
-        <iframe src="https://player.vimeo.com/video/1144729191?h=749d81211d&title=0&byline=0&portrait=0" title="Showreel ART HOUSE" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Showreel">Showreel</div><div class="ttl">ART | HOUSE</div></div>
+      <!-- Reel principal: Publicidad -->
+      <div class="work-item feat reveal" data-cat="publicidad">
+        <iframe src="https://player.vimeo.com/video/1144729191?h=749d81211d&title=0&byline=0&portrait=0" title="Reel de publicidad" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Advertising — Main reel">Publicidad — Reel principal</div><div class="ttl">ART | HOUSE</div></div>
       </div>
-      <div class="work-item reveal" data-cat="comercial" data-delay="1">
-        <iframe src="https://player.vimeo.com/video/953814740?h=ca291785fc&title=0&byline=0&portrait=0" title="Advertising" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Advertising">Publicidad</div><div class="ttl">Advertising</div></div>
+      <div class="work-item reveal" data-cat="moda" data-delay="1">
+        <iframe src="https://player.vimeo.com/video/1056180284?h=64c7b99f51&title=0&byline=0&portrait=0" title="Reel de moda" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Fashion">Moda</div><div class="ttl" data-en="Fashion reel">Reel de moda</div></div>
       </div>
-      <div class="work-item reveal" data-cat="musica" data-delay="2">
-        <iframe src="https://player.vimeo.com/video/968433374?h=bc1a59d2e9&title=0&byline=0&portrait=0" title="Music Video" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Music Video">Videoclip</div><div class="ttl">Music Video</div></div>
+      <div class="work-item reveal" data-cat="videoclips" data-delay="2">
+        <iframe src="https://player.vimeo.com/video/953814740?h=ca291785fc&title=0&byline=0&portrait=0" title="Reel de videoclips" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Music Videos">Videoclips</div><div class="ttl" data-en="Music video reel">Reel de videoclips</div></div>
       </div>
-      <div class="work-item reveal" data-cat="comercial">
-        <iframe src="https://player.vimeo.com/video/906185361?h=da14ccadeb&title=0&byline=0&portrait=0" title="Corporate" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Corporate">Corporativo</div><div class="ttl">Corporate</div></div>
+      <div class="work-item reveal" data-cat="cine">
+        <iframe src="https://player.vimeo.com/video/906185361?h=da14ccadeb&title=0&byline=0&portrait=0" title="Reel de cine" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Film">Cine</div><div class="ttl" data-en="Film reel">Reel de cine</div></div>
       </div>
-      <div class="work-item reveal" data-cat="cine" data-delay="1">
-        <iframe src="https://player.vimeo.com/video/1056180284?h=64c7b99f51&title=0&byline=0&portrait=0" title="Film" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Film">Cine</div><div class="ttl">Film</div></div>
+      <div class="work-item reveal" data-cat="corporativo" data-delay="1">
+        <iframe src="https://player.vimeo.com/video/968433374?h=bc1a59d2e9&title=0&byline=0&portrait=0" title="Reel corporativo" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Corporate">Corporativo</div><div class="ttl" data-en="Corporate reel">Videos corporativos</div></div>
       </div>
-      <div class="work-item reveal" data-cat="moda" data-delay="2">
-        <iframe src="https://player.vimeo.com/video/392051240?title=0&byline=0&portrait=0" title="Fashion" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <div class="meta"><div class="cat" data-en="Fashion">Moda</div><div class="ttl">Fashion</div></div>
+      <div class="work-item reveal" data-cat="influencers" data-delay="2">
+        <iframe src="https://player.vimeo.com/video/1127028876?h=66f195f606&title=0&byline=0&portrait=0" title="Reel de influencers" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Influencers">Influencers</div><div class="ttl" data-en="Influencers reel">Reel de influencers</div></div>
       </div>
-      <!-- Tu primer proyecto con IA ira aqui: reemplaza el bloque .ph por un video (iframe) de Vimeo cuando lo tengas -->
-      <div class="work-item reveal" data-cat="ia">
-        <div class="ph"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="meta"><div class="cat" data-en="AI Content">Contenido con IA</div><div class="ttl" data-en="Coming soon">Próximamente</div></div>
+      <div class="work-item reveal" data-cat="eventos">
+        <iframe src="https://player.vimeo.com/video/1123601913?h=892161fc6d&title=0&byline=0&portrait=0" title="Reel de eventos" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Events">Eventos</div><div class="ttl" data-en="Events reel">Reel de eventos</div></div>
+      </div>
+      <div class="work-item reveal" data-cat="comida" data-delay="1">
+        <iframe src="https://player.vimeo.com/video/392051240?title=0&byline=0&portrait=0" title="Reel de comida" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Food">Comida</div><div class="ttl" data-en="Food reel">Reel de comida</div></div>
+      </div>
+      <div class="work-item reveal" data-cat="dron" data-delay="2">
+        <iframe src="https://player.vimeo.com/video/144772252?title=0&byline=0&portrait=0" title="Reel de dron" allow="fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <div class="meta"><div class="cat" data-en="Drone">Dron</div><div class="ttl" data-en="Drone reel">Reel de dron</div></div>
       </div>
     </div>
   </div>
@@ -526,16 +563,109 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
 
     <div class="team-sub reveal" data-en="Directors">Directores</div>
     <div class="team-grid">
-      <div class="member reveal"><div class="avatar"><span class="ini">AC</span></div><div class="info"><div class="nm">Arturo Chu</div><div class="rl" data-en="Director">Director</div></div></div>
-      <div class="member reveal" data-delay="1"><div class="avatar"><span class="ini">JE</span></div><div class="info"><div class="nm">Jorge Espinosa</div><div class="rl" data-en="Director">Director</div></div></div>
-      <div class="member reveal" data-delay="2"><div class="avatar"><span class="ini">CP</span></div><div class="info"><div class="nm">César Padilla</div><div class="rl" data-en="Director">Director</div></div></div>
-      <div class="member reveal" data-delay="3"><div class="avatar"><span class="ini">MC</span></div><div class="info"><div class="nm">Mariel Cortés</div><div class="rl" data-en="Director">Directora</div></div></div>
-      <div class="member reveal" data-delay="4"><div class="avatar"><span class="ini">AL</span></div><div class="info"><div class="nm">Ángel Larrieta</div><div class="rl" data-en="Director">Director</div></div></div>
+      <div class="member reveal">
+        <div class="avatar"><span class="ini">AC</span></div>
+        <div class="info"><div class="nm">Arturo Chu</div><div class="rl" data-en="Director">Director</div>
+          <div class="links">
+            <a href="https://www.instagram.com/arturochu/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/1046290311/9735f469bd" target="_blank" rel="noopener">Reel</a>
+          </div>
+        </div>
+      </div>
+      <div class="member reveal" data-delay="1">
+        <div class="avatar"><span class="ini">JE</span></div>
+        <div class="info"><div class="nm">Jorge Espinosa</div><div class="rl" data-en="Director">Director</div>
+          <div class="links">
+            <a href="https://www.instagram.com/jorge_3_d/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/1037946802/6cdf740d7d" target="_blank" rel="noopener" data-en="Directing">Dirección</a>
+            <a href="https://vimeo.com/1154062237/052b72ce88" target="_blank" rel="noopener">VFX</a>
+          </div>
+        </div>
+      </div>
+      <div class="member reveal" data-delay="2">
+        <div class="avatar"><span class="ini">CP</span></div>
+        <div class="info"><div class="nm">César Padilla</div><div class="rl" data-en="Director">Director</div>
+          <div class="links">
+            <a href="https://www.instagram.com/sarupadilla/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/1074690685/38035a9c6a" target="_blank" rel="noopener">Reel</a>
+          </div>
+        </div>
+      </div>
+      <div class="member reveal" data-delay="3">
+        <div class="avatar"><span class="ini">MC</span></div>
+        <div class="info"><div class="nm">Mariel Cortés</div><div class="rl" data-en="Director">Directora</div>
+          <div class="links">
+            <a href="https://www.instagram.com/mayemariel/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/887486781" target="_blank" rel="noopener" data-en="Narrative">Narrativo</a>
+            <a href="https://vimeo.com/887484762" target="_blank" rel="noopener" data-en="Commercial">Comercial</a>
+            <a href="https://vimeo.com/1067503275" target="_blank" rel="noopener" data-en="Music">Videoclips</a>
+          </div>
+        </div>
+      </div>
+      <div class="member reveal" data-delay="4">
+        <div class="avatar"><span class="ini">AL</span></div>
+        <div class="info"><div class="nm">Ángel Larrieta</div><div class="rl" data-en="Director">Director</div>
+          <div class="links">
+            <a href="https://www.instagram.com/peplarrieta/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/1126937593/8040c0c076" target="_blank" rel="noopener">Reel</a>
+          </div>
+        </div>
+      </div>
+      <div class="member reveal">
+        <div class="avatar"><span class="ini">SM</span></div>
+        <div class="info"><div class="nm">Sebastián Masso</div><div class="rl" data-en="Director">Director</div>
+          <div class="links">
+            <a href="https://www.instagram.com/sebastianmasso/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/1058453583/353aebe7aa" target="_blank" rel="noopener">Reel</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="team-sub reveal" data-en="Photographers">Fotógrafos</div>
     <div class="team-grid photogs">
-      <div class="member reveal"><div class="avatar"><span class="ini">EB</span></div><div class="info"><div class="nm">Ernesto Bouthier</div><div class="rl" data-en="Photographer">Fotógrafo</div></div></div>
+      <div class="member reveal">
+        <div class="avatar"><span class="ini">EB</span></div>
+        <div class="info"><div class="nm">Ernesto Bouthier</div><div class="rl" data-en="Photographer">Fotógrafo</div>
+          <div class="links">
+            <a href="https://www.instagram.com/netobou/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>IG</a>
+            <a href="https://vimeo.com/681168752/4acfca7020" target="_blank" rel="noopener">Reel</a>
+            <a href="#fotofija" data-en="Photos">Fotos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOTO FIJA ============ -->
+<section class="fotofija section-pad" id="fotofija">
+  <div class="wrap">
+    <div class="head-row">
+      <div class="reveal">
+        <span class="eyebrow" data-en="Still photography">Foto fija</span>
+        <h2 class="section-title" data-en="Photography">Fotografía</h2>
+        <p class="lead" data-en="Editorial, fashion, and portrait photography by our team.">Fotografía editorial, de moda y retrato de nuestro equipo.</p>
+      </div>
+    </div>
+    <div class="team-sub reveal" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">Ernesto Bouthier <a class="ig-inline" href="https://www.instagram.com/netobou/" target="_blank" rel="noopener">@netobou</a></div>
+    <div class="gallery reveal">
+      <img src="img/ernesto-01.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-02.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-03.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-04.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-05.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-06.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-07.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-08.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-09.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-10.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-11.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+      <img src="img/ernesto-12.jpg" alt="Fotografía de Ernesto Bouthier" loading="lazy">
+    </div>
+    <div style="text-align:center;margin-top:46px" class="reveal">
+      <p class="lead" style="margin:0 auto 18px" data-en="More still photography — Arturo Chu on 500px:">Más foto fija — Arturo Chu en 500px:</p>
+      <a class="btn btn-ghost" href="https://500px.com/p/arturochu" target="_blank" rel="noopener" data-en="View Arturo Chu on 500px">Ver a Arturo Chu en 500px <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -668,6 +798,8 @@ footer{background:#070707;border-top:1px solid var(--line);padding:64px 0 30px}
         <a href="#services" data-en="Services">Servicios</a>
         <a href="#ai">AI Studio</a>
         <a href="#work" data-en="Work">Portafolio</a>
+        <a href="#team" data-en="Team">Equipo</a>
+        <a href="#fotofija" data-en="Photography">Foto Fija</a>
         <a href="#events" data-en="Events">Eventos</a>
       </div>
       <div class="foot-col">
