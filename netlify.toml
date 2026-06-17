@@ -1,0 +1,13 @@
+# netlify.toml — configuración del sitio ART | HOUSE
+# Sitio estático de un solo archivo: no necesita "build".
+
+[build]
+  publish = "."
+
+# Cabeceras de seguridad y caché
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
